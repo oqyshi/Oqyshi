@@ -1,0 +1,18 @@
+<link href="style.css" rel="stylesheet" type="text/css">
+<div class="box">
+  <img src="img.jpg" class="img"></img>
+  <div class="name">Название итд</div>
+  <div class="data">
+    <span class="place">place</span>
+    <span class="date">date</span>
+  </div>
+  <button onclick="change(this)"><img src="off.svg" width="15px"></button>
+</div>
+<script>
+  var c=1;
+  function change(el){
+    let a = el.querySelector("img");
+    if(c){a.src = "on.svg"; c=0;}
+    else {a.src = "off.svg"; c=1;}
+  }
+</script>
