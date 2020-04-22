@@ -1,3 +1,5 @@
+# -- coding: utf-8 --
+
 import requests
 
 api_server = "http://geocode-maps.yandex.ru/1.x/"

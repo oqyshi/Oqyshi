@@ -1,3 +1,4 @@
+# -- coding: utf-8 --
 from flask import Flask, render_template, redirect, request, abort, make_response, jsonify
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField

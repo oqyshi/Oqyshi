@@ -1,0 +1,33 @@
+.box{
+  height: 90px;
+  width: 500px;
+  border: solid 1px black;
+  border-radius: 10px;
+  padding:5px;
+  position: relative;
+}
+.box .img{
+  height: 90px;
+  width: 90px;
+  float: left;
+}
+.box .name{
+  position: absolute;
+  left: 100px;
+  top:0;
+}
+.box .data{
+  color:grey;
+  font-size: 10px;
+  position: absolute;
+  bottom: 10px;
+  left: 100px;
+}
+.box button{
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  border: none;
+  background-color: white;
+
+}
