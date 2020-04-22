@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1>ORGs:</h1>
+    {% for item in items %}
+
+        <a href="/organizations/{{ item.id }}">
+            <div><div><img src="static/img/{{item.logo}}"
+                           class="rounded float-left img-thumbnail"
+                           alt="Responsive image"
+                           width="200"
+                           height="200"></div>
+              <br>
+            </div>
+
+
+
+        </a>
+        <br>
+        <br>
+        <br>
+    {% endfor %}
+{% endblock %}
