@@ -2,22 +2,25 @@
 
 {% block content %}
 
-
-<div class="box">
-    <img src="../statics/constant_img/img.jpg" class="img">
+<link href="static\css\style.css" rel="stylesheet" type="text/css">
+{% for item in items %}
+</div></center>
+<center><div class="box">
+    <img src="static/img/{{item.logo}}" class="img">
     <div class="name">Название итд</div>
     <div class="data">
         <span class="place">place</span>
         <span class="date">date</span>
     </div>
-    <button onclick="change(this)"><img src="../statics/constant_img/off.svg" width="15px"></button>
-</div>
+    <button onclick="change(this)"><img src="../static/constant_img/off.svg" width="15px"></button>
+</div></center>
 <script>
       var c=1;
       function change(el){
         let a = el.querySelector("img");
-        if(c){a.src = "../statics/constant_img/on.svg"; c=0;}
-        else {a.src = "../statics/constant_img/off.svg"; c=1;}
+        if(c){a.src = "../static/constant_img/on.svg"; c=0;}
+        else {a.src = "../static/constant_img/off.svg"; c=1;}
       }
 </script>
+{% endfor %}
 {% endblock %}
