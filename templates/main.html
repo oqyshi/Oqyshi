@@ -2,23 +2,32 @@
 
 {% block content %}
 
-    <h1>ORGs:</h1>
-    {% for item in items %}
-
-        <a href="/organizations/{{ item.id }}">
-            <div><div><img src="static/img/{{item.logo}}"
-                           class="rounded float-left img-thumbnail"
-                           alt="Responsive image"
-                           width="200"
-                           height="200"></div>
-              <br>
+<link href="static\css\style.css" rel="stylesheet" type="text/css">
+<br>
+{% for item in items %}
+<a href="/organizations/{{ item.id }}">
+    <center>
+        <div class="box">
+            <img src="static/img/{{item.logo}}" class="img">
+            <div class="name">
+                <div class="organization_name">{{item.organization_name.upper()}}</div>
+                <div class="description">{{item.description}}</div>
             </div>
 
-
-
-        </a>
-        <br>
-        <br>
-        <br>
-    {% endfor %}
+            <div class="data">
+                <span class="place">{{item.address}}</span>
+            </div>
+            <button onclick="change(this)"><img src="../static/constant_img/off.svg" width="15px"></button>
+        </div>
+    </center>
+</a>
+<script>
+      var c=1;
+      function change(el){
+        let a = el.querySelector("img");
+        if(c){a.src = "../static/constant_img/on.svg"; c=0;}
+        else {a.src = "../static/constant_img/off.svg"; c=1;}
+      }
+</script>
+{% endfor %}
 {% endblock %}

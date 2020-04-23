@@ -4,16 +4,20 @@
 
 <link href="static\css\style.css" rel="stylesheet" type="text/css">
 {% for item in items %}
-</div></center>
-<center><div class="box">
-    <img src="static/img/{{item.logo}}" class="img">
-    <div class="name">Название итд</div>
-    <div class="data">
-        <span class="place">place</span>
-        <span class="date">date</span>
-    </div>
-    <button onclick="change(this)"><img src="../static/constant_img/off.svg" width="15px"></button>
-</div></center>
+<a href="/organizations/{{ item.id }}">
+    <center>
+        <div class="box">
+            <img src="static/img/{{item.logo}}" class="img">
+            <div class="name">{{item.organization_name.upper()}}</div>
+            <br>
+            <p>{{item.description}}</p>
+            <div class="data">
+                <span class="place">{{item.address}}</span>
+            </div>
+            <button onclick="change(this)"><img src="../static/constant_img/off.svg" width="15px"></button>
+        </div>
+    </center>
+</a>
 <script>
       var c=1;
       function change(el){

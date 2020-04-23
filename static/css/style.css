@@ -17,6 +17,19 @@
   left: 100px;
   top:0;
 }
+
+.box .organization_name{
+  font-size: 15px;
+  top:0;
+}
+
+.box .description{
+  color: black;
+  font-size: 15px;
+  left: 100px;
+  top:0;
+}
+
 .box .data{
   color:grey;
   font-size: 10px;
