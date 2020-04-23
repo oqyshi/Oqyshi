@@ -3,6 +3,10 @@
 {% block content %}
 
     <h1>{{item.organization_name}}</h1>
+    <h1>{{item.address}}</h1>
+    <h1>{{item.contact_number}}</h1>
+    <h1>{{item.description}}</h1>
+
     <img src="../static/img/{{item.address_ll}}.png" class="img-fluid" alt="YANDEX MAP">
         {% if current_user.is_authenticated and current_user.id == item.owner_id %}
             <div>

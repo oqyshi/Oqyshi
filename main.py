@@ -49,7 +49,6 @@ class LoginForm(FlaskForm):
 #     session = db_session.create_session()
 #     return render_template('test.html', title='Main', items=session.query(Organization).all())
 
-
 @app.route('/organizations')
 def base():
     db_session.global_init("db/blogs.sqlite")
