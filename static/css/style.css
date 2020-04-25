@@ -17,19 +17,6 @@
   left: 100px;
   top:0;
 }
-
-.box .organization_name{
-  font-size: 15px;
-  top:0;
-}
-
-.box .description{
-  color: black;
-  font-size: 15px;
-  left: 100px;
-  top:0;
-}
-
 .box .data{
   color:grey;
   font-size: 10px;
@@ -44,4 +31,20 @@
   border: none;
   background-color: white;
 
+}
+
+.text{
+  width:33vw;
+  min-width: 100px;
+  display: inline-block;
+  position: relative;
+}
+.img-fluid{
+  display: inline-block;
+  position: absolute;
+  top:4em; /*4 text letters*/
+  left:34vw;
+
+  width:33vw;
+  min-width: 100px;
 }
