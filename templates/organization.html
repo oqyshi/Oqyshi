@@ -1,17 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-    <h1>{{item.organization_name}}</h1>
-    <h1>{{item.address}}</h1>
-    <h1>{{item.contact_number}}</h1>
-    <h1>{{item.description}}</h1>
-
-    <img src="../static/img/{{item.address_ll}}.png" class="img-fluid" alt="YANDEX MAP">
-        {% if current_user.is_authenticated and current_user.id == item.owner_id %}
-            <div>
-                <a class="btn btn-warning" href="/addorganization">Изменить</a>
-                <a class="btn btn-danger" href="/deleteorganization/{{item.id}}">Удалить запись</a>
-            </div>
-        {% endif %}
+    <link href="\static\css\style.css" rel="stylesheet" type="text/css">
+    <div class="text">
+        <h1>{{item.organization_name}}</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ex purus, lobortis in lectus vel, facilisis dignissim erat. Quisque faucibus arcu pellentesque accumsan lacinia. Etiam ultricies eu odio sed auctor. Donec lacinia purus a leo tincidunt pretium. Vestibulum volutpat erat sed justo tincidunt auctor. Curabitur vehicula lectus non mauris maximus, a aliquam erat tincidunt. Proin vel ante eget mauris imperdiet interdum vitae ut odio. Nunc vitae urna vitae turpis imperdiet vulputate a a nunc. Aliquam erat volutpat. Mauris dictum congue iaculis. Donec eleifend lectus eu facilisis rutrum. Nam ut rutrum massa. Vestibulum in lorem mi. Phasellus volutpat cursus tincidunt.</p>
+        <img src="../static/img/{{item.address_ll}}.png" class="img-fluid" alt="YANDEX MAP">
+  </div>
+      <div>
+            <a class="btn btn-warning" href="/addorganization">Изменить</a>
+            <a class="btn btn-danger" href="/deleteorganization/{{item.id}}">Удалить запись</a>
+      </div>
 {% endblock %}
