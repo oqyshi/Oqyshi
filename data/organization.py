@@ -38,22 +38,25 @@ class Organization(SqlAlchemyBase, UserMixin, SerializerMixin):
             "geocode": self.address
         }
         response = requests.get(api_server, params=params)
-        json_response = response.json()
-        toponym = json_response["response"]["GeoObjectCollection"]["featureMember"][0]["GeoObject"]
-        toponym_address = toponym["metaDataProperty"]["GeocoderMetaData"]["text"]
-        self.address_ll = ",".join(toponym["Point"]["pos"].split())
-        self.address = toponym_address
-        print([toponym_address])
+        if response:
+            json_response = response.json()
+            toponym = json_response["response"]["GeoObjectCollection"]["featureMember"][0]["GeoObject"]
+            toponym_address = toponym["metaDataProperty"]["GeocoderMetaData"]["text"]
+            self.address_ll = ",".join(toponym["Point"]["pos"].split())
+            self.address = toponym_address
+            print([toponym_address])
 
-        map_params = {
-            "ll": self.address_ll,
-            "spn": "0.005,0.005",
-            "l": "map",
-            'pt': ','.join(self.address_ll.split() + ['org'])
-        }
+            map_params = {
+                "ll": self.address_ll,
+                "spn": "0.005,0.005",
+                "l": "map",
+                'pt': ','.join(self.address_ll.split() + ['org'])
+            }
 
-        map_api_server = "http://static-maps.yandex.ru/1.x/"
-        response = requests.get(map_api_server, params=map_params)
-        map_file = f"static/img/{self.address_ll}.png"
-        with open(map_file, "wb") as file:
-            file.write(response.content)
+            map_api_server = "http://static-maps.yandex.ru/1.x/"
+            response = requests.get(map_api_server, params=map_params)
+            map_file = f"static/img/{self.address_ll}.png"
+            with open(map_file, "wb") as file:
+                file.write(response.content)
+        else:
+            raise Exception('Address is wrong')

@@ -56,6 +56,15 @@ def base():
     return render_template('main.html', title='Main', items=session.query(Organization).all())
 
 
+@app.route('/myorganizations')
+@login_required
+def myorganization():
+    db_session.global_init("db/blogs.sqlite")
+    session = db_session.create_session()
+    return render_template('main.html', title='My organization',
+                           items=session.query(Organization).filter(Organization.owner == current_user).all())
+
+
 @login_manager.user_loader
 def load_user(user_id):
     session = db_session.create_session()
@@ -126,10 +135,10 @@ def addorganization():
         )
         organization.logo = organization.organization_name + '.' + request.files['file'].filename.split('.')[-1]
         request.files['file'].save(os.path.join(os.getcwd() + '/static/img', organization.logo))
-
-        print(organization.logo)
-
-        organization.set_address_ll()
+        try:
+            organization.set_address_ll()
+        except Exception:
+            return render_template('addorganization.html', title='Добавление организации', form=form, message="Не удалось найти адресс")
         organization.owner_id = current_user.id
         current_user.organizations.append(organization)
         session.merge(current_user)
