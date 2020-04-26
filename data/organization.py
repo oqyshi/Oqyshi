@@ -44,7 +44,6 @@ class Organization(SqlAlchemyBase, UserMixin, SerializerMixin):
             toponym_address = toponym["metaDataProperty"]["GeocoderMetaData"]["text"]
             self.address_ll = ",".join(toponym["Point"]["pos"].split())
             self.address = toponym_address
-            print([toponym_address])
 
             map_params = {
                 "ll": self.address_ll,
