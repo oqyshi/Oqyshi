@@ -11,7 +11,13 @@
         <img src="../static/img/{{item.address_ll}}.png" class="img-fluid" alt="YANDEX MAP">
   </div>
       <div>
-            <a class="btn btn-warning" href="/addorganization">Изменить</a>
-            <a class="btn btn-danger" href="/deleteorganization/{{item.id}}">Удалить запись</a>
+          {% if current_user.is_authenticated and item.owner == current_user%}
+                    <div>
+                        <a class="btn btn-warning" href="/addorganization">Изменить</a>
+                        <a class="btn btn-danger" href="/deleteorganization/{{item.id}}">Удалить запись</a>
+
+                    </div>
+                {% endif %}
+
       </div>
 {% endblock %}

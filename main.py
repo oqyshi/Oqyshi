@@ -44,16 +44,6 @@ class LoginForm(FlaskForm):
 
 
 @app.route('/')
-# def test():
-#     db_session.global_init("db/blogs.sqlite")
-#     session = db_session.create_session()
-#     return render_template('test.html', title='Main', items=session.query(Organization).all())
-
-@app.route('/about')
-def test():
-    session = db_session.create_session()
-    return render_template('about.html', title='Main')
-
 @app.route('/organizations')
 def base():
     db_session.global_init("db/blogs.sqlite")
@@ -143,7 +133,8 @@ def addorganization():
         try:
             organization.set_address_ll()
         except Exception:
-            return render_template('addorganization.html', title='Добавление организации', form=form, message="Не удалось найти адресс")
+            return render_template('addorganization.html', title='Добавление организации', form=form,
+                                   message="Не удалось найти адресс")
         organization.owner_id = current_user.id
         current_user.organizations.append(organization)
         session.merge(current_user)
@@ -177,6 +168,11 @@ def organization_delete(org_id):
     else:
         abort(404)
     return redirect('/')
+
+
+@app.route('/about')
+def test():
+    return render_template('about.html', title='about')
 
 
 def main():
