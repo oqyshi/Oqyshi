@@ -48,3 +48,10 @@
   width:33vw;
   min-width: 100px;
 }
+.contact img, .contact p{
+  width:300px;
+}
+.contact{
+  display: inline-block;
+  width:
+}
